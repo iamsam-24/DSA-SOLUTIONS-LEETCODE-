@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+       
+        unordered_map<int,int>count;
+        for(int num:nums){//count the number the occurence of the elements
+            count[num]++;
+        }
+        vector<pair<int,int>> arr;//storing the {frequency ,number }in an array using second and first functions of frquency mapping
+        for(auto &it:count){
+            arr.push_back({it.second,it.first});
+        }
+///this is the sorting method using for the first time used in sorting frequncies so array is sorted
+        sort(arr.begin(),arr.end(),greater<pair<int,int>>());
+        vector<int>ans;
+//create a ans to store the final answer as we need only the number in return
+        for(int i =0;i<k;i++){//counting the occurence of eleement till k times only
+            ans.push_back({arr[i].second});
+
+            ///returning the second part of the mapping as only numbers is asked in the question
+
+        }
+        
+        return ans;
+
+        
+        
+    }
+};
