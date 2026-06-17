@@ -1,0 +1,18 @@
+from collections import defaultdict
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagram_map=defaultdict(list)
+        result=[]
+## so here simple logic is we use to sort the words and everything become like aet then using defaultdict give them as a key and the values are already in the testcase 
+
+        for s in strs:
+            sorted_s=tuple(sorted(s))
+            anagram_map[sorted_s].append(s)
+        ##simply here we extracted the data of value and pushed in a blank result string 
+        for value in anagram_map.values():
+            result.append(value)
+
+
+
+        return result    
