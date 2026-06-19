@@ -1,0 +1,16 @@
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+       ##lets fking do it my way 
+       diff_map={0:-1}
+       diff=0 ##starting with -1 
+       maxi=0
+       for i in range(len(nums)):
+        if(nums[i]==1): ##the catch 0 dealing with -1 and 1 with 1 so whenever we find same diff at two points the between is ans and if the array start with 0 will minus the first index i for say length with -1 and for other condition keep the index same ....dry run is very important in this question 
+            diff+=1
+        else:
+            diff-=1
+        if diff in diff_map:
+            maxi=max(maxi, i - diff_map[diff])
+        else:
+            diff_map[diff] = i
+       return maxi                
