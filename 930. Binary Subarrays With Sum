@@ -1,0 +1,22 @@
+class Solution:
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        prefix =0
+        count=0
+        sum={0:1}
+        for num in nums:
+
+            prefix+=num
+            
+            if prefix-goal in sum:
+
+                count+=sum[prefix-goal]
+            if prefix in sum:
+                sum[prefix]+=1    
+            else:
+                sum[prefix]=1    
+        return count
+            
+                
+
+
+        
